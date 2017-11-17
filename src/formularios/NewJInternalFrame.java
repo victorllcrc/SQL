@@ -7,10 +7,13 @@ package formularios;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -21,38 +24,73 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
     /**
      * Creates new form NewJInternalFrame
      */
+    DefaultTableModel model;
+
     public NewJInternalFrame() {
         initComponents();
         limpiar();
         bloquear();
+        cargar("");
     }
-    
+
     //METODOS IMPLEMENTADOS
-        void limpiar(){
-    txtnom.setText("");
-    txtape.setText("");
-    txtDNI.setText("");
-    txtTel.setText("");
+    void cargar(String valor) {
+        String[] titulos = {"Codigo", "Nombre", "Apellidos", "DNI", "Telefono"};
+        String[] registros = new String[5];
+
+        String sql = "SELECT * FROM clientes where CONCAT(nom_cli,' ', ape_cli) LIKE '%"+valor+"%'";
+
+        model = new DefaultTableModel(null, titulos);
+
+        conectar cc = new conectar();
+        Connection cn = cc.conexion();
+
+        Statement st;
+        try {
+            st = cn.createStatement();
+            ResultSet rs = st.executeQuery(sql);
+
+            while (rs.next()) {
+                registros[0] = rs.getString("cod_cli");
+                registros[1] = rs.getString("nom_cli");
+                registros[2] = rs.getString("ape_cli");
+                registros[3] = rs.getString("ciu_cli");
+                registros[4] = rs.getString("tel_cli");
+                model.addRow(registros);
+            }
+            t_datos.setModel(model);
+
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(null, ex);
+        }
+
     }
-    
-    void bloquear(){
-    txtnom.setEnabled(false);
-    txtape.setEnabled(false);
-    txtDNI.setEnabled(false);
-    txtTel.setEnabled(false);
-    btnNue.setEnabled(true);
-    btnGua.setEnabled(false);
-    btnEli.setEnabled(false);
+
+    void limpiar() {
+        txtnom.setText("");
+        txtape.setText("");
+        txtDNI.setText("");
+        txtTel.setText("");
     }
-    
-      void desbloquear(){
-    txtnom.setEnabled(true);
-    txtape.setEnabled(true);
-    txtDNI.setEnabled(true);
-    txtTel.setEnabled(true);
-    btnNue.setEnabled(false);
-    btnGua.setEnabled(true);
-    btnEli.setEnabled(true);
+
+    void bloquear() {
+        txtnom.setEnabled(false);
+        txtape.setEnabled(false);
+        txtDNI.setEnabled(false);
+        txtTel.setEnabled(false);
+        btnNue.setEnabled(true);
+        btnGua.setEnabled(false);
+        btnEli.setEnabled(false);
+    }
+
+    void desbloquear() {
+        txtnom.setEnabled(true);
+        txtape.setEnabled(true);
+        txtDNI.setEnabled(true);
+        txtTel.setEnabled(true);
+        btnNue.setEnabled(false);
+        btnGua.setEnabled(true);
+        btnEli.setEnabled(true);
     }
 
     /**
@@ -65,7 +103,7 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel5 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        txtBus = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -81,7 +119,7 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
         btnEli = new javax.swing.JButton();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        t_datos = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(222, 222, 222));
         setClosable(true);
@@ -90,8 +128,13 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Cliente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("EngraversGothic BT", 0, 16), new java.awt.Color(0, 0, 0))); // NOI18N
         jPanel5.setForeground(new java.awt.Color(0, 0, 0));
 
-        jTextField1.setBackground(new java.awt.Color(240, 240, 240));
-        jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtBus.setBackground(new java.awt.Color(240, 240, 240));
+        txtBus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtBus.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtBusKeyReleased(evt);
+            }
+        });
 
         jButton4.setBackground(new java.awt.Color(222, 222, 222));
         jButton4.setForeground(new java.awt.Color(0, 0, 0));
@@ -103,7 +146,7 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
                 .addContainerGap(103, Short.MAX_VALUE)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtBus, javax.swing.GroupLayout.PREFERRED_SIZE, 535, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(17, 17, 17))
@@ -116,7 +159,7 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
                     .addComponent(jButton4)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(9, 9, 9)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(txtBus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(14, Short.MAX_VALUE))
         );
 
@@ -269,8 +312,8 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
         jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Clientes Registrados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("EngraversGothic BT", 0, 16), new java.awt.Color(0, 0, 0))); // NOI18N
         jPanel7.setForeground(new java.awt.Color(0, 0, 0));
 
-        jTable1.setBackground(new java.awt.Color(222, 222, 222));
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        t_datos.setBackground(new java.awt.Color(222, 222, 222));
+        t_datos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -281,7 +324,7 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(t_datos);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -326,29 +369,31 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnGuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuaActionPerformed
-        conectar cc= new conectar();
-    Connection cn = cc.conexion();
-    String nom, ape, ciu, tel;
-    String sql="";
-    nom=txtnom.getText();
-    ape=txtape.getText();
-    ciu=txtDNI.getText();
-    tel=txtTel.getText();
-    sql="INSERT INTO clientes (nom_cli, ape_cli, ciu_cli, tel_cli) VALUES(?,?,?,?)";
+        conectar cc = new conectar();
+        Connection cn = cc.conexion();
+        String nom, ape, ciu, tel;
+        String sql = "";
+        nom = txtnom.getText();
+        ape = txtape.getText();
+        ciu = txtDNI.getText();
+        tel = txtTel.getText();
+        sql = "INSERT INTO clientes (nom_cli, ape_cli, ciu_cli, tel_cli) VALUES(?,?,?,?)";
         try {
-            PreparedStatement psd= cn.prepareStatement(sql);
+            PreparedStatement psd = cn.prepareStatement(sql);
             psd.setString(1, nom);
             psd.setString(2, ape);
             psd.setString(3, ciu);
             psd.setString(4, tel);
             int n = psd.executeUpdate();
-            if(n>0){
-                JOptionPane.showMessageDialog(null,"Registro guardado con exito");
-                bloquear(); 
+            if (n > 0) {
+                JOptionPane.showMessageDialog(null, "Registro guardado con exito");
+                bloquear();
             }
         } catch (SQLException ex) {
             Logger.getLogger(ing_cli.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        cargar("");
     }//GEN-LAST:event_btnGuaActionPerformed
 
     private void btnNueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNueActionPerformed
@@ -358,7 +403,7 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnNueActionPerformed
 
     private void txtnomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtnomActionPerformed
-       
+
         txtnom.transferFocus();
     }//GEN-LAST:event_txtnomActionPerformed
 
@@ -374,6 +419,10 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
         txtTel.transferFocus();
     }//GEN-LAST:event_txtTelActionPerformed
 
+    private void txtBusKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusKeyReleased
+        cargar(txtBus.getText());
+    }//GEN-LAST:event_txtBusKeyReleased
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEli;
@@ -388,8 +437,8 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTable t_datos;
+    private javax.swing.JTextField txtBus;
     private javax.swing.JTextField txtDNI;
     private javax.swing.JTextField txtTel;
     private javax.swing.JTextField txtape;
