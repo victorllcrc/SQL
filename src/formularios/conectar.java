@@ -20,8 +20,8 @@ public class conectar {
                 //Class.forName("com.mysql.jdbc.Driver");
                 Class.forName("org.gjt.mm.mysql.Driver");
                 conect = DriverManager.getConnection("jdbc:mysql://localhost/db","root","");
-                System.out.println("conexion establecida");
-                JOptionPane.showMessageDialog(null,"Conectado");
+                //System.out.println("conexion establecida");
+                //JOptionPane.showMessageDialog(null,"Conectado");
                 //Cargamos el Driver Access
                 //Class.forName("sun.jdbc.odbc.JdbcOdbcDriver");
                 
