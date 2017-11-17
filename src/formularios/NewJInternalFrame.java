@@ -38,7 +38,7 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
         String[] titulos = {"Codigo", "Nombre", "Apellidos", "DNI", "Telefono"};
         String[] registros = new String[5];
 
-        String sql = "SELECT * FROM clientes where CONCAT(nom_cli,' ', ape_cli) LIKE '%"+valor+"%'";
+        String sql = "SELECT * FROM clientes where CONCAT(nom_cli,' ', ape_cli) LIKE '%" + valor + "%'";
 
         model = new DefaultTableModel(null, titulos);
 
@@ -54,7 +54,7 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
                 registros[0] = rs.getString("cod_cli");
                 registros[1] = rs.getString("nom_cli");
                 registros[2] = rs.getString("ape_cli");
-                registros[3] = rs.getString("ciu_cli");
+                registros[3] = rs.getString("dni_cli");
                 registros[4] = rs.getString("tel_cli");
                 model.addRow(registros);
             }
@@ -246,6 +246,11 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
         btnEli.setForeground(new java.awt.Color(0, 0, 0));
         btnEli.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/recycle-full.png"))); // NOI18N
         btnEli.setText("Eliminar");
+        btnEli.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -324,6 +329,11 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
+        t_datos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                t_datosMouseClicked(evt);
+            }
+        });
         jScrollPane1.setViewportView(t_datos);
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
@@ -371,29 +381,31 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
     private void btnGuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuaActionPerformed
         conectar cc = new conectar();
         Connection cn = cc.conexion();
-        String nom, ape, ciu, tel;
+        String nom, ape, tel;
+        int dni;
         String sql = "";
         nom = txtnom.getText();
         ape = txtape.getText();
-        ciu = txtDNI.getText();
+        dni = Integer.parseInt(txtDNI.getText());  //int b = Integer.parseInt("900");  COVERSIOND DE String a Int 
         tel = txtTel.getText();
-        sql = "INSERT INTO clientes (nom_cli, ape_cli, ciu_cli, tel_cli) VALUES(?,?,?,?)";
+        sql = "INSERT INTO clientes (nom_cli, ape_cli, dni_cli, tel_cli) VALUES(?,?,?,?)";
         try {
             PreparedStatement psd = cn.prepareStatement(sql);
             psd.setString(1, nom);
             psd.setString(2, ape);
-            psd.setString(3, ciu);
+            psd.setInt(3, dni);
             psd.setString(4, tel);
             int n = psd.executeUpdate();
             if (n > 0) {
                 JOptionPane.showMessageDialog(null, "Registro guardado con exito");
+                cargar("");
                 bloquear();
             }
         } catch (SQLException ex) {
             Logger.getLogger(ing_cli.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        cargar("");
+
     }//GEN-LAST:event_btnGuaActionPerformed
 
     private void btnNueActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNueActionPerformed
@@ -422,6 +434,47 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
     private void txtBusKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtBusKeyReleased
         cargar(txtBus.getText());
     }//GEN-LAST:event_txtBusKeyReleased
+
+    private void btnEliActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliActionPerformed
+        conectar cc = new conectar();
+        Connection cn = cc.conexion();
+        //String nom, ape, tel;
+        //int dni;
+        String sql = "";
+        String nom = txtnom.getText();
+        //ape = txtape.getText();
+        //dni = Integer.parseInt(txtDNI.getText());  //int b = Integer.parseInt("900");  COVERSIOND DE String a Int 
+        //tel = txtTel.getText();
+        sql = "DELETE FROM clientes WHERE nom_cli=?";
+        try {
+            PreparedStatement psd = cn.prepareStatement(sql);
+            psd.setString(1, nom);
+            int n = psd.executeUpdate();
+            if (n > 0) {
+                JOptionPane.showMessageDialog(null, "Registro eliminado con exito");
+                cargar("");
+                bloquear();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ing_cli.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnEliActionPerformed
+
+    private void t_datosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_t_datosMouseClicked
+
+        int fil = t_datos.getSelectedRow();
+
+      
+    
+            txtnom.setText((String) model.getValueAt(fil, 1));
+            txtape.setText((String) model.getValueAt(fil, 2));
+            txtDNI.setText((String) model.getValueAt(fil, 3));
+            txtTel.setText((String) model.getValueAt(fil, 4));
+
+        
+
+
+    }//GEN-LAST:event_t_datosMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
