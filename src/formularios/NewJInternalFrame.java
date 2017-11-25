@@ -71,6 +71,8 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
         txtape.setText("");
         txtDNI.setText("");
         txtTel.setText("");
+        txtcod.setText("");
+        
     }
 
     void bloquear() {
@@ -80,9 +82,12 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
         txtTel.setEnabled(false);
         btnNue.setEnabled(true);
         btnGua.setEnabled(false);
-        btnEli.setEnabled(false);
+        btnEli.setEnabled(true);
+        btnedi.setEnabled(true);
+        btnact.setEnabled(false);
+        
     }
-
+    
     void desbloquear() {
         txtnom.setEnabled(true);
         txtape.setEnabled(true);
@@ -90,7 +95,20 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
         txtTel.setEnabled(true);
         btnNue.setEnabled(false);
         btnGua.setEnabled(true);
-        btnEli.setEnabled(true);
+        btnEli.setEnabled(false);
+        btnedi.setEnabled(false);
+        btnact.setEnabled(false);
+    }
+    void desbloquear1() {
+        txtnom.setEnabled(true);
+        txtape.setEnabled(true);
+        txtDNI.setEnabled(true);
+        txtTel.setEnabled(true);
+        btnNue.setEnabled(false);
+        btnGua.setEnabled(false);
+        btnEli.setEnabled(false);
+        btnedi.setEnabled(true);
+        btnact.setEnabled(true);
     }
 
     /**
@@ -117,6 +135,10 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
         btnNue = new javax.swing.JButton();
         btnGua = new javax.swing.JButton();
         btnEli = new javax.swing.JButton();
+        btnedi = new javax.swing.JButton();
+        btnact = new javax.swing.JButton();
+        txtcod = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         t_datos = new javax.swing.JTable();
@@ -130,6 +152,11 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
 
         txtBus.setBackground(new java.awt.Color(240, 240, 240));
         txtBus.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtBus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtBusActionPerformed(evt);
+            }
+        });
         txtBus.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 txtBusKeyReleased(evt);
@@ -252,6 +279,42 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
             }
         });
 
+        btnedi.setBackground(new java.awt.Color(222, 222, 222));
+        btnedi.setFont(new java.awt.Font("EngraversGothic BT", 0, 16)); // NOI18N
+        btnedi.setForeground(new java.awt.Color(0, 0, 0));
+        btnedi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/edit.png"))); // NOI18N
+        btnedi.setText("Editar");
+        btnedi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnediActionPerformed(evt);
+            }
+        });
+
+        btnact.setBackground(new java.awt.Color(222, 222, 222));
+        btnact.setFont(new java.awt.Font("EngraversGothic BT", 0, 16)); // NOI18N
+        btnact.setForeground(new java.awt.Color(0, 0, 0));
+        btnact.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/edit.png"))); // NOI18N
+        btnact.setText("Actualizar");
+        btnact.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnactActionPerformed(evt);
+            }
+        });
+
+        txtcod.setBackground(new java.awt.Color(240, 240, 240));
+        txtcod.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));
+        txtcod.setEnabled(false);
+        txtcod.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtcodActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setBackground(new java.awt.Color(222, 222, 222));
+        jLabel5.setFont(new java.awt.Font("EngraversGothic BT", 0, 15)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
+        jLabel5.setText("Codigo:");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -270,24 +333,44 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel4))
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtTel, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtDNI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtcod, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(txtTel, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtDNI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnact, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(11, 11, 11)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(btnGua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnNue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnEli, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22))
+                    .addComponent(btnedi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnNue, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnGua))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                        .addGap(8, 8, 8)
+                        .addComponent(btnEli, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addGap(27, 27, 27)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnNue)
+                            .addComponent(btnGua))
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnEli)
+                            .addComponent(btnedi)
+                            .addComponent(btnact)))
+                    .addGroup(jPanel6Layout.createSequentialGroup()
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(txtnom, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -302,15 +385,12 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel6Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(btnNue)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnGua)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnEli)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                            .addComponent(txtTel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(txtcod, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
 
         jPanel7.setBackground(new java.awt.Color(222, 222, 222));
@@ -318,6 +398,7 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
         jPanel7.setForeground(new java.awt.Color(0, 0, 0));
 
         t_datos.setBackground(new java.awt.Color(222, 222, 222));
+        t_datos.setFont(new java.awt.Font("EngraversGothic BT", 1, 12)); // NOI18N
         t_datos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -348,7 +429,7 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 221, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -370,7 +451,7 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -399,6 +480,7 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
             if (n > 0) {
                 JOptionPane.showMessageDialog(null, "Registro guardado con exito");
                 cargar("");
+                limpiar();
                 bloquear();
             }
         } catch (SQLException ex) {
@@ -441,14 +523,14 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
         //String nom, ape, tel;
         //int dni;
         String sql = "";
-        String nom = txtnom.getText();
+        String cod = txtcod.getText();
         //ape = txtape.getText();
         //dni = Integer.parseInt(txtDNI.getText());  //int b = Integer.parseInt("900");  COVERSIOND DE String a Int 
         //tel = txtTel.getText();
-        sql = "DELETE FROM clientes WHERE nom_cli=?";
+        sql = "DELETE FROM clientes WHERE cod_cli=?";
         try {
             PreparedStatement psd = cn.prepareStatement(sql);
-            psd.setString(1, nom);
+            psd.setString(1, cod);
             int n = psd.executeUpdate();
             if (n > 0) {
                 JOptionPane.showMessageDialog(null, "Registro eliminado con exito");
@@ -465,7 +547,7 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
         int fil = t_datos.getSelectedRow();
 
       
-    
+            txtcod.setText((String) model.getValueAt(fil, 0));
             txtnom.setText((String) model.getValueAt(fil, 1));
             txtape.setText((String) model.getValueAt(fil, 2));
             txtDNI.setText((String) model.getValueAt(fil, 3));
@@ -476,16 +558,48 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_t_datosMouseClicked
 
+    private void btnactActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnactActionPerformed
+        conectar cc = new conectar();
+        Connection cn = cc.conexion();
+        try {
+            PreparedStatement pps = cn.prepareStatement("UPDATE clientes SET nom_cli='"+txtnom.getText()+"',ape_cli='"+txtape.getText()+"',"
+                    + "dni_cli='"+txtDNI.getText()+"',tel_cli='"+txtTel.getText()+"'WHERE cod_cli='"+txtcod.getText()+"'");
+            pps.executeUpdate();
+            JOptionPane.showMessageDialog(null, "datos actualizados");
+            limpiar();
+            cargar("");
+            bloquear();
+        } catch (SQLException ex) {
+            Logger.getLogger(NewJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_btnactActionPerformed
+
+    private void txtcodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtcodActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtcodActionPerformed
+
+    private void txtBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtBusActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtBusActionPerformed
+
+    private void btnediActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnediActionPerformed
+        desbloquear1();
+    }//GEN-LAST:event_btnediActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEli;
     private javax.swing.JButton btnGua;
     private javax.swing.JButton btnNue;
+    private javax.swing.JButton btnact;
+    private javax.swing.JButton btnedi;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
@@ -495,6 +609,7 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtDNI;
     private javax.swing.JTextField txtTel;
     private javax.swing.JTextField txtape;
+    private javax.swing.JTextField txtcod;
     private javax.swing.JTextField txtnom;
     // End of variables declaration//GEN-END:variables
 }
