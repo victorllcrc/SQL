@@ -19,14 +19,14 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author VICTOR
  */
-public class NewJInternalFrame extends javax.swing.JInternalFrame {
+public class NewClientes extends javax.swing.JInternalFrame {
 
     /**
      * Creates new form NewJInternalFrame
      */
     DefaultTableModel model;
 
-    public NewJInternalFrame() {
+    public NewClientes() {
         initComponents();
         limpiar();
         bloquear();
@@ -570,7 +570,7 @@ public class NewJInternalFrame extends javax.swing.JInternalFrame {
             cargar("");
             bloquear();
         } catch (SQLException ex) {
-            Logger.getLogger(NewJInternalFrame.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(NewClientes.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }//GEN-LAST:event_btnactActionPerformed
