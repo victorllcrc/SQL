@@ -57,7 +57,7 @@
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder justification="2" position="2" title="Buscar Cliente">
+            <TitledBorder justification="2" position="2" title="Buscar Tecnicos">
               <Font PropertyName="font" name="EngraversGothic BT" size="16" style="0"/>
               <Color PropertyName="color" blue="0" green="0" red="0" type="rgb"/>
             </TitledBorder>
@@ -137,7 +137,7 @@
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder justification="2" position="2" title="Buscar Cliente">
+            <TitledBorder justification="2" position="2" title="Operaciones Tecnicos">
               <Font PropertyName="font" name="EngraversGothic BT" size="16" style="0"/>
               <Color PropertyName="color" blue="0" green="0" red="0" type="rgb"/>
             </TitledBorder>
@@ -481,7 +481,7 @@
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
-            <TitledBorder justification="2" position="2" title="Clientes Registrados">
+            <TitledBorder justification="2" position="2" title="Tecnicos Registrados">
               <Font PropertyName="font" name="EngraversGothic BT" size="16" style="0"/>
               <Color PropertyName="color" blue="0" green="0" red="0" type="rgb"/>
             </TitledBorder>

@@ -140,7 +140,7 @@ public class Newtecnico extends javax.swing.JInternalFrame {
         setClosable(true);
 
         jPanel5.setBackground(new java.awt.Color(222, 222, 222));
-        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Cliente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("EngraversGothic BT", 0, 16), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Tecnicos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("EngraversGothic BT", 0, 16), new java.awt.Color(0, 0, 0))); // NOI18N
         jPanel5.setForeground(new java.awt.Color(0, 0, 0));
 
         txtBus.setBackground(new java.awt.Color(240, 240, 240));
@@ -184,7 +184,7 @@ public class Newtecnico extends javax.swing.JInternalFrame {
         );
 
         jPanel6.setBackground(new java.awt.Color(222, 222, 222));
-        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Cliente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("EngraversGothic BT", 0, 16), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel6.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Operaciones Tecnicos", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("EngraversGothic BT", 0, 16), new java.awt.Color(0, 0, 0))); // NOI18N
         jPanel6.setForeground(new java.awt.Color(0, 0, 0));
 
         jLabel1.setBackground(new java.awt.Color(222, 222, 222));
@@ -370,7 +370,7 @@ public class Newtecnico extends javax.swing.JInternalFrame {
         );
 
         jPanel7.setBackground(new java.awt.Color(222, 222, 222));
-        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Clientes Registrados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("EngraversGothic BT", 0, 16), new java.awt.Color(0, 0, 0))); // NOI18N
+        jPanel7.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Tecnicos Registrados", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("EngraversGothic BT", 0, 16), new java.awt.Color(0, 0, 0))); // NOI18N
         jPanel7.setForeground(new java.awt.Color(0, 0, 0));
 
         t_datos.setBackground(new java.awt.Color(222, 222, 222));
