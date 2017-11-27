@@ -33,9 +33,9 @@ public class NewConsultasR extends javax.swing.JInternalFrame {
         txtcodtec.setText("");
         txtfecini.setText("");
         txtpro.setText("");
-        txtsol.setText("");
-        txtfecter.setText("");
-               
+        //txtsol.setText("");
+        //txtfecter.setText("");
+        
     }
     void bloquear(){
         txtcodcon.setEnabled(false);
@@ -43,8 +43,8 @@ public class NewConsultasR extends javax.swing.JInternalFrame {
         txtcodtec.setEnabled(false);
         txtfecini.setEnabled(false);
         txtpro.setEnabled(false);
-        txtsol.setEnabled(false);
-        txtfecter.setEnabled(false);
+        //txtsol.setEnabled(false);
+        //txtfecter.setEnabled(false);
         btnNue.setEnabled(true);
         btnGua.setEnabled(false);
     }
@@ -54,8 +54,8 @@ public class NewConsultasR extends javax.swing.JInternalFrame {
         txtcodtec.setEnabled(true);
         txtfecini.setEnabled(true);
         txtpro.setEnabled(true);
-        txtsol.setEnabled(true);
-        txtfecter.setEnabled(true);
+        //txtsol.setEnabled(true);
+        //txtfecter.setEnabled(true);
         btnNue.setEnabled(false);
         btnGua.setEnabled(true);
     }
@@ -77,15 +77,10 @@ public class NewConsultasR extends javax.swing.JInternalFrame {
         jLabel3 = new javax.swing.JLabel();
         txtfecini = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        txtfecter = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtcodcon = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtpro = new javax.swing.JTextArea();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtsol = new javax.swing.JTextArea();
         btnNue = new javax.swing.JButton();
         btnGua = new javax.swing.JButton();
 
@@ -127,20 +122,6 @@ public class NewConsultasR extends javax.swing.JInternalFrame {
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Tipo de problema");
 
-        jLabel5.setBackground(new java.awt.Color(222, 222, 222));
-        jLabel5.setFont(new java.awt.Font("EngraversGothic BT", 0, 15)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Solucion");
-
-        jLabel6.setBackground(new java.awt.Color(222, 222, 222));
-        jLabel6.setFont(new java.awt.Font("EngraversGothic BT", 0, 15)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Fecha de Termino ");
-
-        txtfecter.setBackground(new java.awt.Color(222, 222, 222));
-        txtfecter.setFont(new java.awt.Font("EngraversGothic BT", 0, 15)); // NOI18N
-        txtfecter.setForeground(new java.awt.Color(0, 0, 0));
-
         jLabel7.setBackground(new java.awt.Color(222, 222, 222));
         jLabel7.setFont(new java.awt.Font("EngraversGothic BT", 0, 15)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
@@ -156,13 +137,6 @@ public class NewConsultasR extends javax.swing.JInternalFrame {
         txtpro.setForeground(new java.awt.Color(0, 0, 0));
         txtpro.setRows(5);
         jScrollPane1.setViewportView(txtpro);
-
-        txtsol.setBackground(new java.awt.Color(222, 222, 222));
-        txtsol.setColumns(20);
-        txtsol.setFont(new java.awt.Font("EngraversGothic BT", 0, 15)); // NOI18N
-        txtsol.setForeground(new java.awt.Color(0, 0, 0));
-        txtsol.setRows(5);
-        jScrollPane2.setViewportView(txtsol);
 
         btnNue.setBackground(new java.awt.Color(222, 222, 222));
         btnNue.setFont(new java.awt.Font("EngraversGothic BT", 0, 16)); // NOI18N
@@ -191,37 +165,35 @@ public class NewConsultasR extends javax.swing.JInternalFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel6)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-                        .addComponent(txtfecter, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jLabel5)
-                        .addComponent(jScrollPane1)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel7))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtcodcon, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
-                            .addComponent(txtcodcli)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(74, 74, 74)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtfecini)
-                            .addComponent(txtcodtec))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 66, Short.MAX_VALUE)
-                .addComponent(btnNue, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(btnGua)
-                .addContainerGap())
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel1)
+                                        .addComponent(jLabel7))
+                                    .addGap(42, 42, 42)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(txtcodcon, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                                        .addComponent(txtcodcli)))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                    .addComponent(jLabel2)
+                                    .addGap(74, 74, 74)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtfecini)
+                                        .addComponent(txtcodtec))))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(132, 132, 132)
+                        .addComponent(btnNue, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(210, 210, 210)
+                        .addComponent(btnGua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(120, 120, 120)))
+                .addGap(34, 34, 34))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -245,20 +217,12 @@ public class NewConsultasR extends javax.swing.JInternalFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel4)
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnGua)
-                        .addComponent(btnNue)))
-                .addGap(34, 34, 34)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(43, 43, 43)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(txtfecter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addComponent(btnGua)
+                    .addComponent(btnNue))
+                .addContainerGap(85, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -289,7 +253,7 @@ public class NewConsultasR extends javax.swing.JInternalFrame {
     private void btnGuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuaActionPerformed
         conectar cc = new conectar();
         Connection cn = cc.conexion();
-        String codcon, codcli, codtec, fecini, procon, solcon, fecter;
+        String codcon, codcli, codtec, fecini, procon ;
 
         String sql = "";
         //codcon = txtcodcon.getText();
@@ -297,17 +261,17 @@ public class NewConsultasR extends javax.swing.JInternalFrame {
         codtec = txtcodtec.getText();
         fecini = txtfecini.getText();
         procon = txtpro.getText();
-        solcon = txtsol.getText();
-        fecter = txtfecter.getText();
-        sql = "INSERT INTO consultas (cliente_cod_cli, tecnico_cod_tec, fec_rev, pro_con, sol_con, fec_ter) VALUES(?,?,?,?,?,?)";
+        //solcon = txtsol.getText();
+        //fecter = txtfecter.getText();
+        sql = "INSERT INTO consultas (cliente_cod_cli, tecnico_cod_tec, fec_rev, pro_con) VALUES(?,?,?,?)";
         try {
             PreparedStatement psd = cn.prepareStatement(sql);
             psd.setString(1,codcli );
             psd.setString(2,codtec );
             psd.setString(3,fecini );
             psd.setString(4,procon );
-            psd.setString(5, solcon);
-            psd.setString(6,fecter );
+            //psd.setString(5, solcon);
+            //psd.setString(6,fecter );
             
             int n = psd.executeUpdate();
             if (n > 0) {
@@ -330,18 +294,13 @@ public class NewConsultasR extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField txtcodcli;
     private javax.swing.JTextField txtcodcon;
     private javax.swing.JTextField txtcodtec;
     private javax.swing.JTextField txtfecini;
-    private javax.swing.JTextField txtfecter;
     private javax.swing.JTextArea txtpro;
-    private javax.swing.JTextArea txtsol;
     // End of variables declaration//GEN-END:variables
 }
