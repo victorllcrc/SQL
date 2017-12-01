@@ -28,7 +28,7 @@ public class NewConsultas extends javax.swing.JInternalFrame {
         String[] titulos = {"Cod Consulta", "Cod Cliente", "Cod Tcnico", "Fec Inicio", "Fec Termino", "Problema"};
         String[] registros = new String[6];
 
-        String sql = "SELECT * FROM consultas where CONCAT(cod_con,' ', cliente_cod_cli,' ', tecnico_cod_tec) LIKE '%" + valor + "%'";
+        String sql = "SELECT * FROM consultas WHERE CONCAT(cod_con,' ', cliente_cod_cli,' ', tecnico_cod_tec) LIKE '%" + valor + "%'";
 
         model = new DefaultTableModel(null, titulos);
 
