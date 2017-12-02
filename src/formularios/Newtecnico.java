@@ -458,7 +458,7 @@ public class Newtecnico extends javax.swing.JInternalFrame {
                 bloquear();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ing_cli.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Pprincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
 
 
@@ -508,7 +508,7 @@ public class Newtecnico extends javax.swing.JInternalFrame {
                 bloquear();
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ing_cli.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(Pprincipal.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEliActionPerformed
 
