@@ -592,7 +592,7 @@ public class NewConsultasE extends javax.swing.JInternalFrame {
             int n = psd.executeUpdate();
             if (n > 0) {
                 JOptionPane.showMessageDialog(null, "Registro eliminado con exito");
-
+                limpiar();
                 bloquear();
             }
         } catch (SQLException ex) {
