@@ -25,9 +25,16 @@ public class NewClientes extends javax.swing.JInternalFrame {
      * Creates new form NewJInternalFrame
      */
     DefaultTableModel model;
-
+    Consistencia validar;
     public NewClientes() {
         initComponents();
+        validar = new Consistencia();
+        validar.soloLetras(txtnom);
+        validar.soloLetras(txtape);
+        validar.soloLetrasyNumeros(txtBus);
+        validar.soloNumeros(txtDNI);
+        validar.soloNumeros(txtTel);
+        validar.soloNumeros(txtcod);
         limpiar();
         bloquear();
         cargar("");

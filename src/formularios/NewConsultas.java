@@ -19,9 +19,14 @@ import javax.swing.table.DefaultTableModel;
 public class NewConsultas extends javax.swing.JInternalFrame {
 
    DefaultTableModel model;
+   Consistencia validar;
     public NewConsultas() {
         initComponents();
+        validar = new Consistencia();
+        
+        validar.soloLetrasyNumeros(txtBus);
         cargar("");
+        
     }
     
     void cargar(String valor) {

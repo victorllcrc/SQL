@@ -19,8 +19,22 @@ public class Pprincipal extends javax.swing.JFrame {
     /**
      * Creates new form Pprincipal
      */
-    public Pprincipal() {
+    Usuario usser;
+    public Pprincipal(Usuario usser) {
         initComponents();
+        this.usser = usser;
+        txtClientes.setEnabled(false);
+        txtTecnicos.setEnabled(false);
+        txtConsulta.setEnabled(false);
+        if(usser.perClient){
+            txtClientes.setEnabled(true);
+        }
+        if(usser.perTecn){
+            txtTecnicos.setEnabled(true);
+        }
+        if(usser.perConsulta){
+            txtConsulta.setEnabled(true);
+        }
     }
 
     /**
@@ -35,13 +49,13 @@ public class Pprincipal extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel5 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        txtClientes = new javax.swing.JButton();
+        txtTecnicos = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        txtConsulta = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -69,27 +83,27 @@ public class Pprincipal extends javax.swing.JFrame {
         jPanel5.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Registros", javax.swing.border.TitledBorder.LEFT, javax.swing.border.TitledBorder.TOP, new java.awt.Font("EngraversGothic BT", 0, 16), new java.awt.Color(0, 153, 153))); // NOI18N
         jPanel5.setForeground(new java.awt.Color(0, 0, 0));
 
-        jButton1.setBackground(new java.awt.Color(255, 255, 255));
-        jButton1.setFont(new java.awt.Font("EngraversGothic BT", 0, 15)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(0, 0, 0));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agent.png"))); // NOI18N
-        jButton1.setText("Clientes");
-        jButton1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        txtClientes.setBackground(new java.awt.Color(255, 255, 255));
+        txtClientes.setFont(new java.awt.Font("EngraversGothic BT", 0, 15)); // NOI18N
+        txtClientes.setForeground(new java.awt.Color(0, 0, 0));
+        txtClientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agent.png"))); // NOI18N
+        txtClientes.setText("Clientes");
+        txtClientes.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
+        txtClientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                txtClientesActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 255, 255));
-        jButton2.setFont(new java.awt.Font("EngraversGothic BT", 0, 15)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(0, 0, 0));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agent.png"))); // NOI18N
-        jButton2.setText("Tecnico");
-        jButton2.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        txtTecnicos.setBackground(new java.awt.Color(255, 255, 255));
+        txtTecnicos.setFont(new java.awt.Font("EngraversGothic BT", 0, 15)); // NOI18N
+        txtTecnicos.setForeground(new java.awt.Color(0, 0, 0));
+        txtTecnicos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agent.png"))); // NOI18N
+        txtTecnicos.setText("Tecnico");
+        txtTecnicos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
+        txtTecnicos.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                txtTecnicosActionPerformed(evt);
             }
         });
 
@@ -100,16 +114,16 @@ public class Pprincipal extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(txtClientes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtTecnicos, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addComponent(jButton1)
+                .addComponent(txtClientes)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2)
+                .addComponent(txtTecnicos)
                 .addGap(0, 104, Short.MAX_VALUE))
         );
 
@@ -153,15 +167,15 @@ public class Pprincipal extends javax.swing.JFrame {
             }
         });
 
-        jButton6.setBackground(new java.awt.Color(255, 255, 255));
-        jButton6.setFont(new java.awt.Font("EngraversGothic BT", 0, 15)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(0, 0, 0));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agent.png"))); // NOI18N
-        jButton6.setText("Registrar");
-        jButton6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
+        txtConsulta.setBackground(new java.awt.Color(255, 255, 255));
+        txtConsulta.setFont(new java.awt.Font("EngraversGothic BT", 0, 15)); // NOI18N
+        txtConsulta.setForeground(new java.awt.Color(0, 0, 0));
+        txtConsulta.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagenes/agent.png"))); // NOI18N
+        txtConsulta.setText("Registrar");
+        txtConsulta.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white, java.awt.Color.white));
+        txtConsulta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                txtConsultaActionPerformed(evt);
             }
         });
 
@@ -179,13 +193,13 @@ public class Pprincipal extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel6Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtConsulta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addContainerGap()))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
-                .addContainerGap(52, Short.MAX_VALUE)
+                .addContainerGap(58, Short.MAX_VALUE)
                 .addComponent(jButton4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton5)
@@ -195,7 +209,7 @@ public class Pprincipal extends javax.swing.JFrame {
             .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel6Layout.createSequentialGroup()
                     .addGap(10, 10, 10)
-                    .addComponent(jButton6)
+                    .addComponent(txtConsulta)
                     .addContainerGap(142, Short.MAX_VALUE)))
         );
 
@@ -212,7 +226,7 @@ public class Pprincipal extends javax.swing.JFrame {
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 154, Short.MAX_VALUE))
+                .addGap(0, 148, Short.MAX_VALUE))
         );
 
         jPanel4.setBackground(new java.awt.Color(222, 222, 222));
@@ -336,21 +350,21 @@ public class Pprincipal extends javax.swing.JFrame {
         System.exit(0);
     }//GEN-LAST:event_btncerrarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void txtClientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtClientesActionPerformed
         this.jDesktopPane1.removeAll();
         NewClientes nj = new NewClientes();
         this.jDesktopPane1.add(nj);
         nj.setUI(null);
         nj.setVisible(true);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_txtClientesActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void txtTecnicosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTecnicosActionPerformed
         this.jDesktopPane1.removeAll();
         Newtecnico nj = new Newtecnico();
         this.jDesktopPane1.add(nj);
         nj.setUI(null);
         nj.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_txtTecnicosActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         this.jDesktopPane1.removeAll();
@@ -377,44 +391,21 @@ public class Pprincipal extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton5ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void txtConsultaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtConsultaActionPerformed
          this.jDesktopPane1.removeAll();
         NewConsultasR nj = new NewConsultasR();
         this.jDesktopPane1.add(nj);
         nj.setUI(null);
         nj.setVisible(true);
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_txtConsultaActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        try {
-            UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(Pprincipal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(Pprincipal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(Pprincipal.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (UnsupportedLookAndFeelException ex) {
-            Logger.getLogger(Pprincipal.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Pprincipal().setVisible(true);
-            }
-        });
-    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btncerrar;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
@@ -424,5 +415,8 @@ public class Pprincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JButton txtClientes;
+    private javax.swing.JButton txtConsulta;
+    private javax.swing.JButton txtTecnicos;
     // End of variables declaration//GEN-END:variables
 }

@@ -25,9 +25,16 @@ public class Newtecnico extends javax.swing.JInternalFrame {
      * Creates new form NewJInternalFrame
      */
     DefaultTableModel model;
+    Consistencia validar;
 
     public Newtecnico() {
         initComponents();
+        validar = new Consistencia();
+        validar.soloLetras(txtnom);
+        validar.soloLetras(txtape);
+        validar.soloLetrasyNumeros(txtBus);
+        validar.soloNumeros(txtcod);
+        validar.soloLetrasyNumeros(txtesp);
         limpiar();
         bloquear();
         cargar("");
